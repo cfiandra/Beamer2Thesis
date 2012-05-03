@@ -72,10 +72,60 @@ text
 </div>
  
 
-<p>The two frame that are produced are:
-<img src="http://claudiofiandrino.altervista.org/LaTeX/Beamer2Thesis/image1.jpg" alt="Title page frame"></p>
+<p>The two frame that are produced are:</p>
+
+<p><img src="http://claudiofiandrino.altervista.org/LaTeX/Beamer2Thesis/image1.jpg" alt="Title page frame"></p>
 
 <p><img src="http://claudiofiandrino.altervista.org/LaTeX/Beamer2Thesis/image2.jpg" alt="Text frame"></p>
+
+
+
+<hr><h3>A second example</h3>
+
+<p>In this second example, some options are shown: the default color is set to red, the language is italian,
+ the bullet shape is square and there are more advisors and candidates.</p>
+
+ 
+<div class="highlight">
+<pre><span class="k">\documentclass</span><span class="nb">{</span>beamer<span class="nb">}</span>
+<span class="k">\usetheme</span><span class="na">[titlepagelogo=logopolito,
+  language=italian,
+  bullet=square,
+  secondsupervisor=true,
+  assistantsupervisor=true,
+  secondassistantsupervisor=true,
+  secondcandidate=true
+  ]</span><span class="nb">{</span>TorinoTh<span class="nb">}</span>
+<span class="k">\author</span><span class="nb">{</span>Claudio Fiandrino<span class="nb">}</span>
+<span class="k">\rel</span><span class="nb">{</span>Mario Rossi<span class="nb">}</span>
+<span class="k">\title</span><span class="nb">{</span>Beamer2Thesis 2.1, thesis theme for Beamer<span class="nb">}</span>
+<span class="k">\ateneo</span><span class="nb">{</span>Politecnico di Torino<span class="nb">}</span>
+<span class="k">\date</span><span class="nb">{</span><span class="k">\today</span><span class="nb">}</span>
+<span class="k">\secondsupervisor</span><span class="nb">{</span>Paolo Bianchi<span class="nb">}</span>
+<span class="k">\assistantsupervisor</span><span class="nb">{</span>Luca Verdi<span class="nb">}</span>
+<span class="k">\secondassistantsupervisor</span><span class="nb">{</span>Valentina Gialli<span class="nb">}</span>
+<span class="k">\secondcandidate</span><span class="nb">{</span>Elisa Rossi<span class="nb">}</span>
+
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\titlepageframe</span>
+
+<span class="k">\begin</span><span class="nb">{</span>tframe<span class="nb">}</span><span class="nb">{</span>Una diapositiva<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>itemize<span class="nb">}</span>
+<span class="k">\item</span> Primo elemento
+<span class="k">\item</span> Secondo elemento
+<span class="k">\end</span><span class="nb">{</span>itemize<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>tframe<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre>
+</div>
+
+<p>As result, the following two frame are produced:</p>
+
+<p><img src="http://claudiofiandrino.altervista.org/LaTeX/Beamer2Thesis/image3.jpg" alt="Title page frame-second example"></p>
+
+<p><img src="http://claudiofiandrino.altervista.org/LaTeX/Beamer2Thesis/image4.jpg" alt="Text frame-second example"></p>
+
       </section>
     </div>
 
