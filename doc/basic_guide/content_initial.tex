@@ -1,0 +1,390 @@
+\titlepageframe % Specific command 
+
+\begin{tframe}{Introduction}
+\begin{itemize}
+\item Beamer is a \LaTeX{} class that allows you to create presentations
+\item Beamer2Thesis is a Beamer package that allows you to create a presentation for your thesis
+\begin{itemize}
+\item with specific dedicated commands
+\item it uses TorinoTh, a Beamer Theme
+\end{itemize}
+\end{itemize}
+\end{tframe}
+
+\begin{tframe}{TorinoTh theme}
+\begin{itemize}
+\item TorinoTh (TorinoThesis) is a theme which is based on Torino and extend it
+\begin{itemize}
+\item Torino is a pretty theme for Beamer realized by Marco Barisione
+\item \href{http://blog.barisione.org/2007-09/torino-a-pretty-theme-for-latex-beamer/}{http://blog.barisione.org/2007-09/torino-a-pretty-theme-for-latex-beamer/}
+\end{itemize}
+\item Names are similar because I attend, as him, the Politecnico of Torino, but I want to emphasize the fact that TorinoTh is a theme that can be used only to realize a thesis
+\end{itemize}
+\end{tframe}
+
+\begin{tframe}{TorinoTh theme}
+\begin{itemize}
+\item The theme consist of:
+\begin{itemize}
+\item \emph{beamercolorthemetorinoth.sty} defines colors and allows you to choose among three possible options: blue (default), green or red
+\item \emph{beamerfontthemetorinoth.sty} defines fonts used
+\item \emph{beamerinnerthemetorinoth.sty} defines the title page and items
+\item \emph{beamerouterthemetorinoth.sty} defines headers and footers
+\item \emph{beamerthemeTorinoTh.sty} include all definitions
+\end{itemize}
+\end{itemize}
+\end{tframe}
+
+\begin{tframe}{Installation}
+Beamer2Thesis is distributed under:
+\begin{itemize}
+\item TeX Live
+\item MiKTeX
+\end{itemize}
+You can use, respectively, the Package Wizard for MiK\TeX\, (\emph{Start/MiKTeX/2.9/}) and the TeX Live Manager for \TeX Live to search and install the theme.
+Personally, I suggest you to use \TeX Live: it works for Linux, Mac and Windows. Actually, the installation under Linux is a bit complicated, but I have realized a short guide that may help you
+\begin{itemize}
+\item \href{http://claudiofiandrino.altervista.org/LaTeX/texlive_on_ubuntu_guide.pdf}{download the guide here}
+\end{itemize}
+
+\end{tframe}
+
+\begin{tframe}{Installation (II)}
+\label{slide-guide-installation}
+As an alternative, Beamer2Thesis can be downloaded from my personal page as a zip file
+\begin{itemize}
+\item \href{http://claudiofiandrino.altervista.org/latex\_projects.html}{http://claudiofiandrino.altervista.org/latex\_projects.html}
+\end{itemize}
+It can be installed with the standard procedure used to install a common package: I suggest you to read a short guide I have written
+\begin{itemize}
+\item \href{http://claudiofiandrino.altervista.org/LaTeX/package_installation.pdf}{download the guide here}
+\end{itemize}
+\end{tframe}
+
+\begin{tframe}{The guides}
+\begin{itemize}
+\item Next slides will present all features avaiable
+\item As examples in which different options are applied, is possible to see the guides:
+\begin{itemize}
+\item beamer2thesis.pdf is the standard english guide which uses standard options
+\item beamer2thesis\_ita.pdf is the italian guide with green colors
+\end{itemize}
+\end{itemize}
+\end{tframe}
+
+\begin{frame}[t,fragile]{How to read the guides}
+\begin{itemize}
+\item All guides show options in general; to have a look for specific configurations, read each guide because in each one is reported its own configuration state
+\item Every time something is declared to be \emph{default}, it is possible to omit it from the configuration phase
+\item Every time an option is enabled by setting it with \emph{true}, to disable it you can use \emph{false}; for example:
+\begin{verbatim}
+secondcandidate=false 
+secondcandidate=true 
+\end{verbatim}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t,fragile]{The configuration phase}
+\begin{itemize}
+\item It is the first thing you have to declare in the document
+\item The general code is \verb!\usetheme[.. options ..]{TorinoTh}!
+\item An example is:
+\begin{verbatim}
+\documentclass{beamer}
+\usetheme[language=english,
+          titlepagelogo=logopolito,
+          bullet=circle,
+          pageofpages=of,
+          titleline=true,
+          color=blue
+          ]{TorinoTh}
+\end{verbatim}
+\end{itemize}
+\end{frame}
+
+\begin{tframe}{Some general options}
+\begin{itemize}
+\item The \highlight{pageofpages} option defines the string between the current
+      page number and the total page count
+  \begin{itemize}
+  \item the default is \emph{of}
+  \end{itemize}
+\item If the \highlight{titleline} option is set to \emph{true}, a horizontal line
+      is drawn below the title
+  \begin{itemize}
+  \item the default is \emph{true}; use \emph{false} to disable
+  \end{itemize}
+\item The \highlight{notshowauthor} option set to \emph{true} allows you to not show the name of the author in the footer
+\begin{itemize}
+\item the default is \emph{false}
+\end{itemize}
+\item The \highlight{titlepagelogo} is the name of the principal logo: it must be a .jpg, .pdf, .png picture
+\begin{itemize}
+\item to include the logo of your University, follow the procedure explained in the following slide
+\end{itemize}
+\end{itemize}
+\end{tframe}
+
+\begin{tframe}{How insert a new logo}
+There are several ways to do it (for people highly capable in \LaTeX\, this is not a problem), but I suggest this method:
+\begin{itemize}
+\item download from my page the .zip file and extract it
+\item copy your logo into the directory of the package
+\item install the package in your personal tree following the guide reported in slide \ref{slide-guide-installation}
+\end{itemize}
+\label{slide-rule-installation}
+\end{tframe}
+
+\begin{frame}[t,fragile]{Other options: avaiable bullets}
+\begin{itemize}
+\item The \highlight{bullet} option can be used to choose the symbol used in the bullet lists
+  \begin{itemize}
+  \item \verb!square!: a filled square
+        ({\usebeamercolor[fg]{item}\tiny\raise0.2ex\hbox{$\blacksquare$}}) for
+        first and third level items, an empty square
+        ({\usebeamercolor[fg]{item}\tiny\raise0.2ex\hbox{$\square$}}) for
+        second level items
+  \item \verb!diamond!: a filled diamond
+        ({\usebeamercolor[fg]{item}\tiny\raise0.2ex\hbox{$\blacklozenge$}}) for
+        first and third level items, an empty diamond
+        ({\usebeamercolor[fg]{item}\tiny\raise0.2ex\hbox{$\lozenge$}}) for
+        second level items
+  \item \verb!triangle!: a filled triangle
+        ({\usebeamercolor[fg]{item}\tiny\raise0.2ex\hbox{$\blacktriangleright$}}) for
+        first and third level items, an empty triangle
+        ({\usebeamercolor[fg]{item}\tiny\raise0.2ex\hbox{$\vartriangleright$}}) for
+        second level items
+  \item \verb!circle!: a filled circle ({\usebeamercolor[fg]{item}$\bullet$})
+        for first and third level items, an empty circle
+        ({\usebeamercolor[fg]{item}$\circ$}) for second level items
+  \item The default value is \verb!circle!
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t,fragile]{Languages}
+\begin{itemize}
+\item There are two languages avaiable:
+\begin{itemize}
+\item english (default)
+\item italian 
+\end{itemize}
+\item The choice of the language implies that in the titlepage, date and labels (Supervisor, Candidate, Relatore, Candidato) are shown with the proper language in an automatic way
+\item To set the italian language, use in the configuration phase:
+\verb!language=italian!
+\item If you have already set a language and you change, it may happen that, the first time you compile, this error occurs: \begin{flushleft}
+\highlight{! Package babel Error: You haven't loaded the option english/italian yet}
+\end{flushleft}
+do not be afraid and compile a second time: it will work!!
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t,fragile]{Coding}
+To avoid forcing an user to use the \verb!utf8x! coding, this release fix the bug by introducing the \highlight{coding} option; possible choices you can exploit are:
+\begin{itemize}
+\item \verb!coding=utf8x! (default)
+\item \verb!coding=utf8! 
+\item \verb!coding=latin1! 
+\end{itemize}
+An important advise: the program does not check which string you put in input; it is your matter select the right coding to satisfy requeriments of your system.
+\end{frame}
+
+\begin{frame}[t,fragile]{Second logo}
+\begin{itemize}
+\item If, for some reasons, someone needs a second logo (a thesis performed in another institute for example) an option allows you to put it in the title page
+\item When \highlight{secondlogo} is set to \emph{true}, you have to use the command \verb!\titlepagesecondlogo{name-logo}!: otherwise an error occurs
+\item As the main logo, the second logo must be a .jpg, .pdf, .png picture and you can insert it following the same rules explained in slide \ref{slide-rule-installation}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Third logo}
+\begin{itemize}
+\item Eventually, if you need a third logo you can exploit the possibility of insert it by setting the option \highlight{thirdlogo} to \emph{true}
+\begin{itemize}
+\item the default is \emph{false}
+\end{itemize}
+\item You have to insert the picture as described for the second logo and use the command \verb!\titlepagethirdlogo{name-logo}!
+to put the logo in the title page
+\item Of course, you can use this option if, and only if, the \highlight{secondlogo} is set to \emph{true}
+\item When there are three logos please use, as reference for the dimensions, the picture \alert{logopolito}: in this way they will be aligned
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t,fragile]{Second candidate}
+\begin{itemize}
+\item It is possible that there are two candidates: the package manage this fact easily
+\begin{itemize}
+\item the first candidate is also the author
+\item the second candidate can be inserted with the command \verb!\secondcandidate{name-surname}! when the option \highlight{secondcandidate} is set to \emph{true}
+\end{itemize}
+\item Of course, when there are two candidates the label \emph{Candidate} becomes \emph{Candidates} and \emph{Candidato} become \emph{Candidati}
+\item With two candidates, the footer changes and the author is not shown automatically (the reason is simply: show two authors plus the title is too much long, making the footer too big)
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t,fragile]{Supervisor and Assistant Supervisor}\label{secondrel}
+\begin{itemize}
+\item To insert the supervisor you just have to use the command \verb!\rel{name-surname}!
+\item There is also the possibility of report the Assistant supervisor:
+\begin{itemize}
+\item set the option \highlight{assistantsupervisor} to \emph{true} (default is \emph{false})
+\item use the command \verb!\assistantsupervisor{name-surname}!
+\end{itemize}
+\item Labels are set accordingly to the language used
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t,fragile]{Second Supervisor and Assistant Supervisor}
+There is also the possibility of insert more than one supervisor and assistant supervisor:
+\begin{itemize}
+\item set the options:
+\begin{itemize}
+\item \highlight{secondsupervisor} to true (default is false);
+\item \highlight{secondassistantsupervisor} to true (default is false);
+\end{itemize}
+\item name can be inserted thanks to:
+\begin{itemize}
+\item \verb!\secondsupervisor! command;
+\item \verb!\secondassistantsupervisor! command; this one can be exploited just when the \highlight{assistantsupervisor} option is set to true;
+\end{itemize}
+\item as usual, labels are set accordingly to the language used
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t,fragile]{Advantages and Disadvantages}
+Sometimes it is useful highlight advantages and disadvantages of a given argument: instead of list them by using the standard bullet, there is the possibility of exploit two new environments (\emph{adv} and \emph{disadv}). Usage:
+\begin{columns}
+\begin{column}{0.3\paperwidth}
+\begin{verbatim}
+\begin{adv}
+\item 
+\end{adv}
+\end{verbatim}
+\end{column}
+\begin{column}{0.3\paperwidth}
+\begin{verbatim}
+\begin{disadv}
+\item 
+\end{disadv}
+\end{verbatim}
+\end{column}
+\end{columns}
+\bigskip
+In the following slide there is an example.
+\end{frame}
+
+\begin{tframe}{Why use Beamer2Thesis}
+Advantages:
+\begin{adv}
+\item Simply to install
+\item Easy to customize
+\item Possibility to exploit several features
+\end{adv}
+Disadvantages:
+\begin{disadv}
+\item Difficulty with long titles
+\item If you find some others, please contact me 
+\end{disadv}
+
+\end{tframe}
+
+\begin{frame}[t,fragile]{Finally: colors}
+\begin{itemize}
+\item There are three possible choices:
+\begin{itemize}
+\item blue
+\item green
+\item red
+\end{itemize}
+\item When the color is chosen setting the option \highlight{color} to one of the list above, consequently headers, footers, title page, bullet and highlightings are set accordingly
+\item For example: \verb!color=green!
+\end{itemize}
+\end{frame}
+
+\begin{tframe}{\XeLaTeX}
+Thanks to a suggestion and the precious help of Nicola Tuveri, Beamer2Thesis supports \XeTeX\, and \XeLaTeX\, automatically.
+You can choose your favourite font to further customize the presentation. I report some examples:\\
+\fontspec[Ligatures={Common, Historical}]{Linux Libertine O Italic}
+\fontsize{12pt}{18pt}\selectfont This is quite strange! 
+\fontspec{TeX Gyre Pagella}
+\selectfont{Also this is strange}\\
+\fontspec[ SizeFeatures={
+{Size={-10}, Font=TeX Gyre Bonum Italic, Color=AA0000},
+{Size={10-14}, Color=00AA00},
+{Size={14-}, Color=0000FA}} ]{TeX Gyre Chorus}
+\selectfont{How to customize fonts?}\par
+\begin{itemize}
+\item {\LARGE Word}
+\item Word
+\item {\tiny World}
+\end{itemize}
+\end{tframe}
+
+\begin{frame}[t,fragile]{\XeLaTeX\,: code}
+To realize the examples reported in the previous slide, the code is:
+\scriptsize{
+\begin{verbatim}
+\fontspec[Ligatures={Common, Historical}]{Linux Libertine O Italic}
+\fontsize{12pt}{18pt}\selectfont This is quite strange!
+\fontspec{TeX Gyre Pagella}
+\selectfont{Also this is strange}\\
+\fontspec{TeX Gyre Pagella}
+\selectfont{How to customize fonts?}\par
+\fontspec[ SizeFeatures={
+{Size={-10}, Font=TeX Gyre Bonum Italic, Color=AA0000},
+{Size={10-14}, Color=00AA00},
+{Size={14-}, Color=0000FA}}]{TeX Gyre Chorus}
+\begin{itemize}
+  \item {\LARGE Word}
+  \item Word
+  \item {\tiny World}
+\end{itemize}
+\end{verbatim}
+}
+\end{frame}
+
+\begin{tframe}{Block}
+Beamer allows to use the \emph{block} environment: it is very useful in some applications. For example:
+\begin{block}<1->{Why use Beamer2Thesis? Advantages}
+\begin{adv}
+\item Simply to install
+\item Easy to customize
+\item Possibility to exploit several features
+\end{adv}
+\end{block}
+\begin{block}<2->{Why use Beamer2Thesis? Disadvantages}
+\begin{disadv}
+\item Difficulty with long titles
+\item If you find some others, please contact me 
+\end{disadv}
+\end{block}
+\end{tframe}
+
+\begin{frame}[t,fragile]{Block: code}
+The previous slide has been realized as:
+\small{\begin{verbatim}
+\begin{block}<1->{Why use Beamer2Thesis? Advantages}
+\begin{adv}
+\item Simply to install
+\item Easy to customize
+\item Possibility to exploit several features
+\end{adv}
+\end{block}
+\begin{block}<2->{Why use Beamer2Thesis? Disadvantages}
+\begin{disadv}
+\item Difficulty with long titles
+\item If you find some others, please contact me 
+\end{disadv}
+\end{block}
+\end{verbatim}}
+\end{frame}
+
+\begin{frame}[t,fragile]{Block: code (II)}
+More in general, Beamer provide three \emph{block} environments:
+\begin{itemize}
+\item \highlight{block}
+\item \highlight{alertblock}
+\item \highlight{exampleblock}
+\end{itemize}
+To have more details, not only on this argument, I suggest to read the \href{http://mirrors.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf}{beameruserguide}.
+\end{frame}
