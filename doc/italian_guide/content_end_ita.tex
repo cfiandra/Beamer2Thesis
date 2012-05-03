@@ -1,0 +1,113 @@
+\begin{frame}[t,fragile]{Il risultato}
+Il pdf generato presenta, automaticamente, alcune proprietà:
+\begin{itemize}
+\item il titolo
+\item il nome dell'autore
+\item l'oggetto
+\begin{itemize}
+\item Thesis Presentation utilizzando la lingua inglese
+\item Presentazione Tesi di Laurea in italiano
+\end{itemize}
+\end{itemize}
+Tutto ciò è reso possibile grazie alle opzioni del pacchetto hyperref. Per creare riferimenti nel testo il codice da utilizzare è:
+\begin{itemize}
+\item \verb!\label{nome-riferimento}! nel punto sorgente
+\item \verb!\ref{nome-riferimento}! nel punto in cui richiamate il riferimento
+\item \verb!\href{url}{name-url}! per specificare indirizzi web
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Suggerimenti}
+\begin{itemize}
+\item Per realizzare una slide si usa l'ambiente \emph{frame}, con allineamenti in alto (t), al centro (c) oppure in basso (b): suggerisco di usare il primo; il codice è\\
+\verb!\begin{frame}[t]{titolo-della-slide}!
+\begin{flushleft}
+text
+\end{flushleft}
+\verb!\end{frame}!
+\item Per facilitare la scrittura ho creato un nuovo ambiente che ha questa proprietà intrinsecamente:\\
+\verb!\begin{tframe}{titolo-della-slide}!
+\begin{flushleft}
+text
+\end{flushleft}
+\verb!\end{tframe}!
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Suggerimenti (II)}
+\begin{itemize}
+\item Per realizzare la prima pagina, è stato introdotto il comando \verb!\titlepageframe!
+\begin{itemize}
+\item naturalmente è possibile usare un approccio più \emph{standard}\\
+\verb!\begin{frame}[plain]!\\
+\verb!\titlepage! \\
+\verb!\end{frame}!
+\item In questo caso \textbf{non} inserite un titolo alla slide
+\end{itemize}
+\item Se dovete inserire del codice con gli ambenti \emph{verbatim} o \emph{listings} \textbf{non utilizzate} \emph{tframe}, ma:\\
+\verb!\begin{frame}[t,fragile]{titolo-della-slide}!
+\begin{verbatim}
+\verb!codice!
+\end{verbatim}
+\verb!\end{frame}!
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t,fragile]{Suggerimenti (III)}
+\begin{itemize}
+\item Dalla versione 2.1, soltanto utilizzando l'opzione \highlight{language} italian, il comando \verb!\today! non funziona correttamente in quanto non viene tradotto automaticamente. Si consiglia pertando di inserire la data in modo \emph{tradizionale} con:
+\begin{itemize}
+\item \verb!\date{giorno Mese anno}!
+\end{itemize}
+Ad esempio:
+\begin{itemize}
+\item \verb!\date{2 Novembre 2011}!
+\end{itemize}
+\item In caso si abbiano più di due relatori o correlatori, suggerisco di inserirli con i comandi riportati in slide \ref{secondrel} separati da una virgola.
+\end{itemize}
+\end{frame}
+
+\begin{tframe}{Su Facebook}
+La rilevanza di Facebook, ad oggi, è nota a tutti: per questo motivo, esistono:
+\begin{itemize}
+\item il gruppo \href{https://www.facebook.com/\#!/groups/beamer2thesis/}{Beamer2Thesis}
+\item la pagina \href{https://www.facebook.com/\#!/pages/Beamer2Thesis/112814205489099}{Beamer2Thesis}
+\end{itemize} 
+In questo modo potete postare i vostri commenti, suggerimenti, idee e domande in modo più \emph{familiare}. Inoltre è possibile trovare ulteriori esempi.
+\end{tframe}
+
+\begin{tframe}{Cronologia}
+Di seguito sono riportate le principali caratteristiche delle versioni:
+\begin{itemize}
+\item iniziale (2011-01-17):
+\begin{itemize}
+\item colori, secondo logo, secondo candidato, ambiente tframe, titleline, bullet, lingue (inglese, italiano), separatore per la numerazione delle slide; 
+\end{itemize}
+\item versione 2.0:
+\begin{itemize}
+\item terzo logo, correlatore, nuovi modi di evidenziazione del testo, comando per il frontespizio, nuovi ambienti \emph{adv} e \emph{disadv}, supporto a \XeTeX\, e \XeLaTeX\,, ambienti block;
+\end{itemize}
+\item versione 2.1:
+\begin{itemize}
+\item opzione sulla codifica, secondo relatore, secondo correlatore.
+\end{itemize}
+\end{itemize}
+\end{tframe}
+
+\begin{tframe}{Ringraziamenti}
+\begin{itemize}
+\item Voglio ringraziare le persone, che con preziosi suggerimenti, hanno contribuito alla realizzazione:
+\begin{itemize}
+\item Alessio Califano
+\item Alessio Sanna
+\item Luca De Villa Palù
+\item Mariano \emph{Dave} Graziano
+\item Giovanna Turvani
+\item Mattia Stefano
+\item Nicola Tuveri
+\item Giuliana Galati
+\end{itemize}
+\end{itemize}
+Un ringraziamento speciale è per il professor Claudio Beccari per i commenti sulla prima versione.
+\end{tframe}
