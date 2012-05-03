@@ -1,0 +1,58 @@
+\documentclass{beamer}
+\usetheme[titlepagelogo=logopolito,% Logo for the first page
+		  language=italian,
+		  bullet=triangle,
+		  color=green,
+		  coding=utf8x
+         ]{TorinoTh}
+
+\author{Claudio Fiandrino}
+\rel{Mario Rossi}
+\title{Beamer2Thesis 2.1, thesis theme for Beamer}
+\ateneo{Politecnico di Torino}
+\date{2 Novembre 2011}
+
+\begin{document}
+\input{content_initial_ita.tex}
+
+\begin{frame}[t,fragile]{Configurazione}
+\begin{itemize}
+\item La configurazione di questo tema è:
+\begin{itemize}
+\item \verb!language=italian!
+\item \verb!coding=utf8x!
+\item \verb!titlepagelogo=name-of-the-logo!
+\item \verb!bullet=triangle!
+\item \verb!color=green!
+\end{itemize}
+\item La maggior parte delle opzioni, effettivamente tutte a parte \highlight{titlepagelogo}, può essere omessa utilizzando il tema standard
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Comportamento degli alert}
+Scegliendo un colore, il tema evidenzia il testo di conseguenza. Per inserire gli alert nell'ambiente \emph{itemize}, potete utilizzare:
+\begin{verbatim}
+\begin{itemize}
+\item<+-| alert@+> Mela
+\item<+-| alert@+> Pesca
+\end{itemize}
+\end{verbatim}
+Ad esempio:
+\begin{itemize}
+\item<+-| alert@+> Mela
+\item<+-| alert@+> Pesca
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Un diverso approccio per evidenziare il testo}
+Se volete evidenziare il vostro testo al di fuori dell'ambiente \emph{itemize}, Beamer2Thesis offre le seguenti possibilità:
+\begin{itemize}
+\item il comando standard \verb!\alert{testo}!: evidenzia semplicemente il vostro \alert{testo}
+\item il comando \verb!\highlight{testo}!: evidenzia il vostro \highlight{testo} rendendolo corsivo
+\item il comando \verb!\highlightbf{testo}!: evidenzia il vostro \highlightbf{testo} in grassetto
+\end{itemize}
+Ovviamente, il colore utilizzato è quello da voi scelto nel preambolo.
+\end{frame}
+
+\input{content_end_ita}
+\end{document}
