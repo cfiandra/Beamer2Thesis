@@ -1,0 +1,112 @@
+\begin{frame}[t,fragile]{The output}
+The pdf generated, has automatically, some properties:
+\begin{itemize}
+\item the title
+\item the name of the author
+\item the subject:
+\begin{itemize}
+\item Thesis Presentation by using the english language
+\item Presentazione Tesi di Laurea by using the italian language
+\end{itemize}
+\end{itemize}
+This is possible thanks to the available options of hyperref. To create references in the text, use:
+\begin{itemize}
+\item \verb!\label{name-reference}! in the starting point
+\item \verb!\ref{name-reference}! in the point you want to show the reference
+\item \verb!\href{url}{name-url}! to specify web addresses
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Suggestions}
+\begin{itemize}
+\item To realize a frame it is possible use the environment \emph{frame} with top (t), center (c) or bottom (b) alignment: I suggest you to use the top alignment; this is the basic code:
+\verb!\begin{frame}[t]{title-of-the-frame}!
+\begin{flushleft}
+text
+\end{flushleft}
+\verb!\end{frame}!
+\item To make things easier, it has been introduced a new environment which is able to have the top property property intrinsic:
+\verb!\begin{tframe}{title-of-the-frame}!
+\begin{flushleft}
+text
+\end{flushleft}
+\verb!\end{tframe}!
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Suggestions (II)}
+\begin{itemize}
+\item To realize the titlepage with all options, it has been introduced the command \verb!\titlepageframe!
+\begin{itemize}
+\item Of course, it is also possible to use the \emph{standard} approach\\
+\verb!\begin{frame}[plain]!\\
+\verb!\titlepage! \\
+\verb!\end{frame}!
+\item In this case \textbf{do not} provide a title for the frame
+\end{itemize}
+\item If you have to insert some code using \emph{verbatim} or \emph{listings} \textbf{do not exploit} \emph{tframe} environment, but:\\
+\verb!\begin{frame}[t,fragile]{title-of-the-frame}!
+\begin{verbatim}
+\verb!code!
+\end{verbatim}
+\verb!\end{frame}!
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t,fragile]{Suggestions (III)}
+\begin{itemize}
+\item From version 2.1, just when you use the option \highlight{language} italian, the command \verb!\today! does not work properly because the translation of the language is not automatic. Therefore, I suggest you to insert the date in a more \emph{traditional} way:
+\begin{itemize}
+\item \verb!\date{day Month year}!
+\end{itemize}
+For example:
+\begin{itemize}
+\item \verb!\date{2 November 2011}!
+\end{itemize}
+\item In case there are more than two supervisors or assistansupervisors, I suggest you to insert them through commands reported in \ref{secondrel} and separate names thanks to a comma.
+\end{itemize}
+\end{frame}
+
+\begin{tframe}{On Facebook}
+The relevance of Facebook is known to everybody: due to this reason, you can find:
+\begin{itemize}
+\item the group \href{https://www.facebook.com/\#!/groups/beamer2thesis/}{Beamer2Thesis}
+\item the page \href{https://www.facebook.com/\#!/pages/Beamer2Thesis/112814205489099}{Beamer2Thesis}
+\end{itemize} 
+In this way you can post your comments, hints, suggestion and questions in more familiar way. Morevoer, you can find further examples.
+\end{tframe}
+
+\begin{tframe}{History}
+Here are shortly reported the main features of the releases:
+\begin{itemize}
+\item basic version (2011-01-17):
+\begin{itemize}
+\item colors, second logo, second candidate, tframe environment, titleline, bullets, languages, separator string for slide numeration; 
+\end{itemize}
+\item release 2.0:
+\begin{itemize}
+\item third logo, assistant supervisor, new ways to highlight, new command for the titlepage, new enviroments \emph{adv} and \emph{disadv}, \XeTeX\, and \XeLaTeX\, support, block;
+\end{itemize}
+\item release 2.1:
+\begin{itemize}
+\item coding option, second supervisor, second assistantsupervisor.
+\end{itemize}
+\end{itemize}
+\end{tframe}
+
+\begin{tframe}{Thanks}
+I would like to thank people that, with precious hints, help me:
+\begin{itemize}
+\item Alessio Califano
+\item Alessio Sanna
+\item Luca De Villa Palù
+\item Mariano \emph{Dave} Graziano
+\item Giovanna Turvani
+\item Mattia Stefano
+\item Nicola Tuveri
+\item Giuliana Galati
+\end{itemize}
+A special thank to Claudio Beccari for very precise comments on the first version.
+\end{tframe}
+
