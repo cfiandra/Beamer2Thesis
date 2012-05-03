@@ -1,0 +1,58 @@
+\documentclass{beamer}
+\usetheme[titlepagelogo=logopolito,% Logo for the first page
+                 ]{TorinoTh}
+
+\author{Claudio Fiandrino}
+\rel{Mario Rossi}
+\title{Beamer2Thesis 2.1, thesis theme for Beamer }
+\ateneo{Politecnico di Torino}
+\date{\today}
+
+\begin{document}
+\input{content_initial.tex}
+
+\begin{frame}[t,fragile]{Configuration}
+\begin{itemize}
+\item The configuration of the standard theme is:
+\begin{itemize}
+\item \verb!language=english!
+\item \verb!coding=utf8x!
+\item \verb!titlepagelogo=name-of-the-logo!
+\item \verb!bullet=circle!
+\item \verb!pageofpages=of!
+\item \verb!titleline=true!
+\item \verb!color=blue!
+\item \verb!secondcandidate=false!
+\item \verb!secondlogo=false!
+\end{itemize}
+\item Most of them, actually everyone except the \highlight{titlepagelogo}, can be omitted if there are no modifications
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Behavior of alerts}
+Each color theme requires different colors to highlight words. To insert alerts by using the \emph{itemize} environment, you can exploit:
+\begin{verbatim}
+\begin{itemize}
+\item<+-| alert@+> Apple
+\item<+-| alert@+> Peach
+\end{itemize}
+\end{verbatim}
+For example:
+\begin{itemize}
+\item<+-| alert@+> Apple
+\item<+-| alert@+> Peach
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Another way to highlight words}
+If you want to highlight your text out of the enviroment \emph{itemize}, Beamer2Thesis offers you the following possibilities:
+\begin{itemize}
+\item the standard command \verb!\alert{text}!: it simply highlights your \alert{text}
+\item the command \verb!\highlight{text}!: it highlights your \highlight{text} setting it in italic
+\item the command \verb!\highlightbf{text}!: it highlights your \highlightbf{text} setting it in bold
+\end{itemize}
+Of course, the color used, is set accordingly to your choice in the configuration phase.
+\end{frame}
+
+\input{content_end}
+\end{document}
