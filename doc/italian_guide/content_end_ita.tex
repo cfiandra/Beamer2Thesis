@@ -56,14 +56,11 @@ text
 
 \begin{frame}[t,fragile]{Suggerimenti (III)}
 \begin{itemize}
-\item Dalla versione 2.1, soltanto utilizzando l'opzione \highlight{language} italian, il comando \verb!\today! non funziona correttamente in quanto non viene tradotto automaticamente. Si consiglia pertando di inserire la data in modo \emph{tradizionale} con:
-\begin{itemize}
-\item \verb!\date{giorno Mese anno}!
-\end{itemize}
-Ad esempio:
-\begin{itemize}
-\item \verb!\date{2 Novembre 2011}!
-\end{itemize}
+\item Se il titolo è troppo lungo rischia di non essere perfettamente inserito a fondo diapositiva, perciò si può utilizzare il \highlight{titolo corto}; ad esempio:
+\begin{verbatim}
+\title[Titolo corto]{Titolo lungo}
+\end{verbatim}
+In questo modo il titolo lungo viene soltanto inserito nel frontespizio.
 \item In caso si abbiano più di due relatori o correlatori, suggerisco di inserirli con i comandi riportati in slide \ref{secondrel} separati da una virgola.
 \end{itemize}
 \end{frame}
@@ -91,6 +88,10 @@ Di seguito sono riportate le principali caratteristiche delle versioni:
 \item versione 2.1:
 \begin{itemize}
 \item opzione sulla codifica, secondo relatore, secondo correlatore.
+\end{itemize}
+\item versione 2.2:
+\begin{itemize}
+\item supporto per più lingue, titolo corto, suggerimento per evidenziare formule matematiche.
 \end{itemize}
 \end{itemize}
 \end{tframe}

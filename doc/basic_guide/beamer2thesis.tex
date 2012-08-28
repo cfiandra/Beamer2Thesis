@@ -1,10 +1,15 @@
 \documentclass{beamer}
 \usetheme[titlepagelogo=logopolito,% Logo for the first page
-                 ]{TorinoTh}
+						language=english
+                        ]{TorinoTh}
+                        
+\usepackage[beamer,customcolors]{hf-tikz}
+\hfsetfillcolor{alerted text.fg!10}
+\hfsetbordercolor{alerted text.fg}
 
 \author{Claudio Fiandrino}
 \rel{Mario Rossi}
-\title{Beamer2Thesis 2.1, thesis theme for Beamer }
+\title{Beamer2Thesis 2.2, thesis theme for Beamer}
 \ateneo{Politecnico di Torino}
 \date{\today}
 
@@ -52,6 +57,33 @@ If you want to highlight your text out of the enviroment \emph{itemize}, Beamer2
 \item the command \verb!\highlightbf{text}!: it highlights your \highlightbf{text} setting it in bold
 \end{itemize}
 Of course, the color used, is set accordingly to your choice in the configuration phase.
+\end{frame}
+
+\begin{frame}[fragile]{Highlighting formulas}
+\begin{itemize}
+\item The package \href{http://www.ctan.org/pkg/hf-tikz}{hf-tikz} allows to highlight formulas and formula parts in Beamer with overlay specifications 
+\item The adaptation of colors to the theme could be done in this way:
+\begin{verbatim}
+\usepackage[beamer,customcolors]{hf-tikz}
+\hfsetfillcolor{alerted text.fg!10}
+\hfsetbordercolor{alerted text.fg}
+\end{verbatim}
+\item \highlight{Two compilation runs} are required to get the right result!
+\item Read the package documentation to find more options; an example will be provided in the next frame.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Highlighting formulas (II)}
+\begin{itemize}
+\item Example:
+\[\tikzmarkin<2->{a}x+\tikzmarkin<1>{b}y\tikzmarkend{b}=10\tikzmarkend{a}\]
+\item<2-> Code:
+\begin{verbatim}
+\[\tikzmarkin<2->{a}x+
+  \tikzmarkin<1>{b}y\tikzmarkend{b}
+  =10\tikzmarkend{a}\]
+\end{verbatim}
+\end{itemize}
 \end{frame}
 
 \input{content_end}

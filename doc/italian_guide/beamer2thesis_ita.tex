@@ -3,14 +3,17 @@
 		  language=italian,
 		  bullet=triangle,
 		  color=green,
-		  coding=utf8x
          ]{TorinoTh}
+         
+\usepackage[beamer,customcolors]{hf-tikz}
+\hfsetfillcolor{alerted text.fg!10}
+\hfsetbordercolor{alerted text.fg}
 
 \author{Claudio Fiandrino}
 \rel{Mario Rossi}
-\title{Beamer2Thesis 2.1, thesis theme for Beamer}
+\title{Beamer2Thesis 2.2, thesis theme for Beamer}
 \ateneo{Politecnico di Torino}
-\date{2 Novembre 2011}
+\date{26 agosto 2012}
 
 \begin{document}
 \input{content_initial_ita.tex}
@@ -52,6 +55,33 @@ Se volete evidenziare il vostro testo al di fuori dell'ambiente \emph{itemize}, 
 \item il comando \verb!\highlightbf{testo}!: evidenzia il vostro \highlightbf{testo} in grassetto
 \end{itemize}
 Ovviamente, il colore utilizzato è quello da voi scelto nel preambolo.
+\end{frame}
+
+\begin{frame}[fragile]{Evidenziare formule matematiche}
+\begin{itemize}
+\item Il pacchetto \href{http://www.ctan.org/pkg/hf-tikz}{hf-tikz} permette di evidenziare formule matematiche (completamente o in parte) in Beamer con animazioni semplici 
+\item Si possono adattare i colori del tema così:
+\begin{verbatim}
+\usepackage[beamer,customcolors]{hf-tikz}
+\hfsetfillcolor{alerted text.fg!10}
+\hfsetbordercolor{alerted text.fg}
+\end{verbatim}
+\item È necessario \highlight{compilare due volte} per ottenere il risultato voluto!
+\item Si legga la documentazione del pacchetto per ulteriori opzioni; un esempio di utilizzo è riportato nella diapositiva successiva.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Evidenziare formule matematiche (II)}
+\begin{itemize}
+\item Esempio:
+\[\tikzmarkin<2->{a}x+\tikzmarkin<1>{b}y\tikzmarkend{b}=10\tikzmarkend{a}\]
+\item<2-> Codice:
+\begin{verbatim}
+\[\tikzmarkin<2->{a}x+
+  \tikzmarkin<1>{b}y\tikzmarkend{b}
+  =10\tikzmarkend{a}\]
+\end{verbatim}
+\end{itemize}
 \end{frame}
 
 \input{content_end_ita}

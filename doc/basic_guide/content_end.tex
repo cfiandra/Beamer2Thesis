@@ -56,14 +56,11 @@ text
 
 \begin{frame}[t,fragile]{Suggestions (III)}
 \begin{itemize}
-\item From version 2.1, just when you use the option \highlight{language} italian, the command \verb!\today! does not work properly because the translation of the language is not automatic. Therefore, I suggest you to insert the date in a more \emph{traditional} way:
-\begin{itemize}
-\item \verb!\date{day Month year}!
-\end{itemize}
-For example:
-\begin{itemize}
-\item \verb!\date{2 November 2011}!
-\end{itemize}
+\item If the title does not fit in the footer box, it is possible to exploit the so called \highlight{shorttitle}; an example:
+\begin{verbatim}
+\title[short title]{Long title of the thesis}
+\end{verbatim}
+In this way the long title is just placed in the titlepage.
 \item In case there are more than two supervisors or assistansupervisors, I suggest you to insert them through commands reported in \ref{secondrel} and separate names thanks to a comma.
 \end{itemize}
 \end{frame}
@@ -86,11 +83,15 @@ Here are shortly reported the main features of the releases:
 \end{itemize}
 \item release 2.0:
 \begin{itemize}
-\item third logo, assistant supervisor, new ways to highlight, new command for the titlepage, new enviroments \emph{adv} and \emph{disadv}, \XeTeX\, and \XeLaTeX\, support, block;
+\item third logo, assistant supervisor, new ways to highlight, new command for the titlepage, new enviroments \emph{adv} and \emph{disadv}, \XeTeX\, and \XeLaTeX\, support, blocks;
 \end{itemize}
 \item release 2.1:
 \begin{itemize}
-\item coding option, second supervisor, second assistantsupervisor.
+\item coding option, second supervisor, second assistantsupervisor;
+\end{itemize}
+\item release 2.2:
+\begin{itemize}
+\item language, short title, highlighting formulas.
 \end{itemize}
 \end{itemize}
 \end{tframe}

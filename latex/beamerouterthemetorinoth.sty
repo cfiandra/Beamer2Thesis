@@ -47,7 +47,7 @@
   \hbox{%
   \begin{beamercolorbox}[wd=.85\paperwidth,ht=0ex,dp=0ex]{}%
   \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.075\paperwidth,ht=.2ex,dp=0ex,center,rounded=true,shadow=true]{frame number}%
+  \begin{beamercolorbox}[wd=.075\paperwidth,ht=.2ex,center,rounded=true,shadow=true]{frame number}%
     \usebeamerfont{frame number}\insertframenumber{} \beamer@torinoth@pageofpages{} \inserttotalframenumber{}%
   \end{beamercolorbox}%
   } %
@@ -60,19 +60,19 @@
      \begin{beamercolorbox}[wd=.2\paperwidth,ht=\beamer@torinoth@box,dp=0pt]{}%
      \end{beamercolorbox}%
      \begin{beamercolorbox}[wd=.6\paperwidth,ht=\beamer@torinoth@box,dp=0pt,center,rounded=true,shadow=true]{footerbox}%
-       \usebeamerfont{footnote}\inserttitle \par% 
+       \usebeamerfont{footnote} \insertshorttitle \par% 
      \end{beamercolorbox}%
   \else%
      \begin{beamercolorbox}[wd=.15\paperwidth,ht=\beamer@torinoth@box,dp=0pt]{}%
      \end{beamercolorbox}%
      \def\beamer@torinoth@notshowauthortext{true}%
      \ifx\beamer@torinoth@notshowauthor\beamer@torinoth@notshowauthortext%
-        \begin{beamercolorbox}[wd=.65\paperwidth,ht=\beamer@torinoth@box,dp=0pt,center,rounded=true,shadow=true]{footerbox}%
-          \usebeamerfont{footnote} \inserttitle \par% 
+        \begin{beamercolorbox}[wd=.65\paperwidth,ht=\beamer@torinoth@box,sep=0.75pt,center,rounded=true,shadow=true]{footerbox}%
+          \usebeamerfont{footnote}\insertshorttitle \par% 
         \end{beamercolorbox}%
      \else
-        \begin{beamercolorbox}[wd=.65\paperwidth,ht=\beamer@torinoth@box,dp=0pt,center,rounded=true,shadow=true]{footerbox}%
-          \usebeamerfont{footnote}\insertauthor{} \beamer@torinoth@separator{} \inserttitle \par%
+        \begin{beamercolorbox}[wd=.65\paperwidth,ht=\beamer@torinoth@box,sep=0.75pt,center,rounded=true,shadow=true]{footerbox}%
+          \usebeamerfont{footnote}\insertauthor{} \beamer@torinoth@separator{} \insertshorttitle \par%
         \end{beamercolorbox}%
      \fi%
   \fi%

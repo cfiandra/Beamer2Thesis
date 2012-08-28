@@ -25,6 +25,7 @@
 
 % Language
 \DeclareOptionBeamer{language}[italian]{\def\beamer@torinoth@language{#1}}
+\DeclareOptionBeamer{language}[other]{\def\beamer@torinoth@language{#1}}
 \ExecuteOptionsBeamer{language=english}
 
 % Second candidate
@@ -68,27 +69,47 @@
 
 % Supervisor
 \def\rel#1{\gdef\@rel{#1}}
+\def\@rel{\PackageError{Beamer2Thesis}%
+{\protect\rel\space not given. Please insert name and surname of the supervisor}%
+{Example: \protect\rel{Name-surname}}
+}%
 
 % Second supervisor
   \def\beamer@torinoth@secondsuptext{true}%
   \ifx\beamer@torinoth@secondsupervisor\beamer@torinoth@secondsuptext%
      \def\secondsupervisor#1{\gdef\@secondsupervisor{#1}}%
+     \def\@secondsupervisor{\PackageError{Beamer2Thesis}%
+     {\protect\secondsupervisor\space not given. Please insert it}%
+     {Example: \protect\secondsupervisor{Name-surname}}
+     }% 
   \fi
 
 % Second candidate
 \def\beamer@torinoth@secondcandtext{true}%
 \ifx\beamer@torinoth@secondcandidate\beamer@torinoth@secondcandtext%
    \def\secondcandidate#1{\gdef\@secondcandidate{#1}}%
+   \def\@secondcandidate{\PackageError{Beamer2Thesis}%
+   {\protect\secondcandidate\space not given. Please insert it}%
+   {Example: \protect\secondcandidate{Name-surname}}
+   }% 
 \fi
 
 % Assistant supervisor
 \def\beamer@torinoth@assistantsupervisortext{true}%
 \ifx\beamer@torinoth@assistantsupervisortext\beamer@torinoth@assistantsupervisor%
    \def\assistantsupervisor#1{\gdef\@assistantsupervisor{#1}}%
+   \def\@assistantsupervisor{\PackageError{Beamer2Thesis}%
+   {\protect\assistantsupervisor\space not given. Please insert it}%
+   {Example: \protect\assistantsupervisor{Name-surname}}
+   }%  
    % Second assistant supervisor
    \def\beamer@torinoth@secondassistantsuptext{true}%
    \ifx\beamer@torinoth@secondassistantsupervisor\beamer@torinoth@secondassistantsuptext%
       \def\secondassistantsupervisor#1{\gdef\@secondassistantsupervisor{#1}}%
+      \def\@secondassistantsupervisor{\PackageError{Beamer2Thesis}%
+      {\protect\secondassistantsupervisor\space not given. Please insert it}%
+      {Example: \protect\secondassistantsupervisor{Name-surname}}
+      }%
    \fi
 \fi
 
@@ -101,13 +122,129 @@
 \setlength\leftmarginii{.6\beamer@torinoth@normalmargin}
 \setlength\leftmarginiii{.6\beamer@torinoth@normalmargin}
 
+% Labels in title page
+%----------------------------------
+\def\beamer@torinoth@superv{}
+\def\beamer@torinoth@assistantsupervisorlabel{}
+\def\beamer@torinoth@cand{}
+\def\beamer@torinoth@italiantext{italian}%
+\def\beamer@torinoth@englishtext{english}%
+%----------------------------------
+ % First Column labels
+    % Supervisor-number-check
+    \ifx\beamer@torinoth@secondsupervisor\beamer@torinoth@secondsuptext%
+       % Supervisor-language-check
+            
+	    \ifx\beamer@torinoth@language\beamer@torinoth@italiantext%
+		   \renewcommand\beamer@torinoth@superv{Relatori}%
+		 \else%
+		    \ifx\beamer@torinoth@language\beamer@torinoth@englishtext%
+		      \renewcommand\beamer@torinoth@superv{Supervisors}%
+		    \else%
+		      \def\setrellabel#1{\gdef\@setrellab{#1}}%
+            \def\@setrellab{\PackageError{Beamer2Thesis}%
+            {\protect\setrellabel\space not given. Please insert it in your language}%
+            {Example in english: \protect\setrellabel{Supervisor}}
+            }   
+            \renewcommand\beamer@torinoth@superv{\@setrellab}%
+	       \fi%
+	    \fi%  
+    \else%
+      % Supervisor-language-check
+	    \ifx\beamer@torinoth@language\beamer@torinoth@italiantext%
+		    \renewcommand\beamer@torinoth@superv{Relatore}%
+		 \else%
+		    \ifx\beamer@torinoth@language\beamer@torinoth@englishtext%
+		      \renewcommand\beamer@torinoth@superv{Supervisor}%
+		    \else%
+		      \def\setrellabel#1{\gdef\@setrellab{#1}}%
+            \def\@setrellab{\PackageError{Beamer2Thesis}%
+            {\protect\setrellabel\space not given. Please insert it in your language}%
+            {Example in english: \protect\setrellabel{Supervisor}}
+            }   
+            \renewcommand\beamer@torinoth@superv{\@setrellab}%
+          \fi%  
+	    \fi%
+    \fi%
+    % Assistant Supervisor-number-check
+    \ifx\beamer@torinoth@secondassistantsupervisor\beamer@torinoth@secondassistantsuptext%
+	    % Assistant-supervisor-language-check
+	    \ifx\beamer@torinoth@language\beamer@torinoth@italiantext%
+		   \renewcommand\beamer@torinoth@assistantsupervisorlabel{Correlatori}%
+		 \else%
+		    \ifx\beamer@torinoth@language\beamer@torinoth@englishtext%
+		      \renewcommand\beamer@torinoth@assistantsupervisorlabel{Assistant Supervisors}%
+	       \else%
+		      \def\setassistentsupervisorlabel#1{\gdef\@setassistentsupervlab{#1}}%
+            \def\@setassistentsupervlab{\PackageError{Beamer2Thesis}%
+            {\protect\setassistentsupervisorlabel\space not given. Please insert it in your language}%
+            {Example in english: \protect\setassistentsupervisorlabel{Assistent Supervisor}}
+            }
+            \renewcommand\beamer@torinoth@assistantsupervisorlabel{\@setassistentsupervlab}%
+          \fi%  
+	    \fi%
+    \else%
+	    % Assistant-supervisor-language-check
+	    \ifx\beamer@torinoth@language\beamer@torinoth@italiantext%
+		   \renewcommand\beamer@torinoth@assistantsupervisorlabel{Correlatore}%
+		 \else%
+		    \ifx\beamer@torinoth@language\beamer@torinoth@englishtext%
+		      \renewcommand\beamer@torinoth@assistantsupervisorlabel{Assistant Supervisor}%
+	       \else%
+		      \def\setassistentsupervisorlabel#1{\gdef\@setassistentsupervlab{#1}}%
+            \def\@setassistentsupervlab{\PackageError{Beamer2Thesis}%
+            {\protect\setassistentsupervisorlabel\space not given. Please insert it in your language}%
+            {Example in english: \protect\setassistentsupervisorlabel{Assistent Supervisor}}
+            }
+            \renewcommand\beamer@torinoth@assistantsupervisorlabel{\@setassistentsupervlab}%
+	       \fi%
+	    \fi%   
+     \fi%
+%----------------------------------
+ % Second Column labels
+    % Number-candidates-check
+    \def\beamer@torinoth@secondcandtext{true}%
+    \ifx\beamer@torinoth@secondcandidate\beamer@torinoth@secondcandtext%
+	     % Candidate-language-check
+	    \ifx\beamer@torinoth@language\beamer@torinoth@italiantext%
+		   \renewcommand\beamer@torinoth@cand{Candidati}%
+		 \else%
+		    \ifx\beamer@torinoth@language\beamer@torinoth@englishtext%
+	         \renewcommand\beamer@torinoth@cand{Candidates}%
+	       \else%
+		      \def\setcandidatelabel#1{\gdef\@setcandlab{#1}}%
+            \def\@setcandlab{\PackageError{Beamer2Thesis}%
+            {\protect\setcandidatelabel\space not given. Please insert it in your language}%
+            {Example in english: \protect\setcandidatelabel{Candidate}}
+            }
+            \renewcommand\beamer@torinoth@cand{\@setcandlab}%
+	       \fi%
+	    \fi%   
+    \else%
+	     % Candidate-language-check
+	    \ifx\beamer@torinoth@language\beamer@torinoth@italiantext%
+		    \renewcommand\beamer@torinoth@cand{Candidato}%
+		 \else  
+	       \ifx\beamer@torinoth@language\beamer@torinoth@englishtext%
+	         \renewcommand\beamer@torinoth@cand{Candidate}%
+	       \else%
+		      \def\setcandidatelabel#1{\gdef\@setcandlab{#1}}%
+            \def\@setcandlab{\PackageError{Beamer2Thesis}%
+            {\protect\setcandidatelabel\space not given. Please insert it in your language}%
+            {Example in english: \protect\setcandidatelabel{Candidate}}
+            }
+            \renewcommand\beamer@torinoth@cand{\@setcandlab}%
+	       \fi%
+	     \fi%  
+    \fi%  
+%----------------------------------
+
 % Thesis title page
 \defbeamertemplate*{title page}{torinoth}[1][]
 {
-
    % Logo & Ateneo
    \begin{centering}
-     \begin{beamercolorbox}[rounded=true,shadow=true,ht=2.5ex,wd=.9\paperwidth,sep=3pt,center,#1]{ateneo page header}%
+     \begin{beamercolorbox}[rounded=true,shadow=true,ht=2.5ex,wd=.89\paperwidth,sep=3pt,center,#1]{ateneo page header}%
        \usebeamerfont{ateneo}\insertateneo\par%
      \end{beamercolorbox}
      \vskip0.5em%
@@ -156,57 +293,22 @@
      \end{beamercolorbox}%
   \end{centering}
 
-  \vskip0.75em\par%  
-
-  % definitions
-  \def\beamer@torinoth@italiantext{italian}%
+  \vskip0.75em\par%
+  
   \begin{columns}
-%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%
     % First column
     \column{.5\paperwidth}%
-    % Definition of labels
-	    % Supervisor-number-check
-	    \ifx\beamer@torinoth@secondsupervisor\beamer@torinoth@secondsuptext%
-	            % Supervisor-language-check
-		    \ifx\beamer@torinoth@language\beamer@torinoth@italiantext%
-			    \def\beamer@torinoth@superv{Relatori}%
-		    \else%
-			    \def\beamer@torinoth@superv{Supervisors}%
-		    \fi%
-	    \else%
-                    % Supervisor-language-check
-		    \ifx\beamer@torinoth@language\beamer@torinoth@italiantext%
-			    \def\beamer@torinoth@superv{Relatore}%
-		    \else%
-			    \def\beamer@torinoth@superv{Supervisor}%
-		    \fi%
-	    \fi%
-            % Assistant Supervisor-number-check
-           \ifx\beamer@torinoth@secondassistantsupervisor\beamer@torinoth@secondassistantsuptext%
-		    % Assistant-supervisor-language-check
-		    \ifx\beamer@torinoth@language\beamer@torinoth@italiantext%
-			    \def\beamer@torinoth@assistantsupervisorlabel{Correlatori}%
-		    \else%
-			    \def\beamer@torinoth@assistantsupervisorlabel{Assistant Supervisors}%
-		    \fi%
-	    \else%
-		    % Assistant-supervisor-language-check
-		    \ifx\beamer@torinoth@language\beamer@torinoth@italiantext%
-			    \def\beamer@torinoth@assistantsupervisorlabel{Correlatore}%
-		    \else%
-			    \def\beamer@torinoth@assistantsupervisorlabel{Assistant Supervisor}%
-		    \fi%
-	     \fi%
     %%%%%%%%%%%%%%%%%
     % Placement of labels
     % Assistant-supervisor-check
     \ifx\beamer@torinoth@assistantsupervisor\beamer@torinoth@assistantsupervisortext%
-            % Number assistant supervisor check
-            \ifx\beamer@torinoth@secondassistantsupervisor\beamer@torinoth@secondassistantsuptext%
-                    \begin{beamercolorbox}[ht=0.075\paperheight,sep=8pt,center,#1]{rel}
+          % Number assistant supervisor check
+          \ifx\beamer@torinoth@secondassistantsupervisor\beamer@torinoth@secondassistantsuptext%
+          \begin{beamercolorbox}[ht=0.075\paperheight,sep=8pt,center,#1]{rel}
 		    \usebeamerfont{definition}\beamer@torinoth@superv%
 		    \end{beamercolorbox}
-                    \vskip-0.25em%
+          \vskip-0.25em%
 		    \ifx\beamer@torinoth@secondsupervisor\beamer@torinoth@secondsuptext%
 			    \begin{beamercolorbox}[ht=0.065\paperheight,sep=8pt,center,#1]{rel}%
 			    \usebeamerfont{person}\@rel%
@@ -228,7 +330,7 @@
 		    \begin{beamercolorbox}[ht=0.06\paperheight,sep=8pt,center,#1]{rel}%
 		    \usebeamerfont{person}\@assistantsupervisor%
 		    \end{beamercolorbox}
-                    \begin{beamercolorbox}[ht=0.05\paperheight,sep=8pt,center,#1]{rel}%
+          \begin{beamercolorbox}[ht=0.05\paperheight,sep=8pt,center,#1]{rel}%
 		    \usebeamerfont{person}\@secondassistantsupervisor%
 		    \end{beamercolorbox}
 		    \vskip-1.75em%
@@ -262,7 +364,7 @@
 		    %\vskip-2em%
             \fi%
     \else%
-            \vspace{\stretch{0.25}}%
+       \vspace{\stretch{0.25}}%
 	    \begin{beamercolorbox}[ht=0.075\paperheight,sep=8pt,center,#1]{rel}
 	    \usebeamerfont{definition}\beamer@torinoth@superv%
 	    \end{beamercolorbox}
@@ -286,24 +388,6 @@
 
     % Second column
     \column{.5\paperwidth}%
-    % Definitions
-    % Number-candidates-check
-	    \def\beamer@torinoth@secondcandtext{true}%
-	    \ifx\beamer@torinoth@secondcandidate\beamer@torinoth@secondcandtext%
-		     % Candidate-language-check
-		    \ifx\beamer@torinoth@language\beamer@torinoth@italiantext%
-			    \def\beamer@torinoth@cand{Candidati}%
-		    \else%
-			    \def\beamer@torinoth@cand{Candidates}%
-		    \fi%
-	    \else%
-		     % Candidate-language-check
-		    \ifx\beamer@torinoth@language\beamer@torinoth@italiantext%
-			    \def\beamer@torinoth@cand{Candidato}%
-		    \else%
-			    \def\beamer@torinoth@cand{Candidate}%
-		    \fi%
-	    \fi%
     %%%%%%%%%%%%%%%%%
     % Placement of labels
             \vskip-0.5em%
@@ -333,19 +417,19 @@
 	     \fi
   \end{columns}
   % Selection of space to skip for the date label
-  \def\beamer@torinoth@assistantsupervisortextf{false}%
-  \ifx\beamer@torinoth@assistantsupervisor\beamer@torinoth@assistantsupervisortextf%
-    \vskip1.5em%
-  \else
-   \vskip-1.35em%
-  \fi
-
+  %\def\beamer@torinoth@assistantsupervisortextf{false}%
+  %\ifx\beamer@torinoth@assistantsupervisor\beamer@torinoth@assistantsupervisortextf%
+    %\vskip1.5em%
+  %\else
+   %\vskip-1.35em%
+  %\fi
+  \vfill
   % Date
   \begin{centering}
     \begin{beamercolorbox}[sep=8pt,center,#1]{date}%
       \usebeamerfont{date}\insertdate{}%
     \end{beamercolorbox}%\vskip0.5em
-    \end{centering}
+  \end{centering}
   \vfill
 }
 
@@ -353,12 +437,12 @@
 
 % Advantages mode
 \newenvironment{adv}%
-{\begin{list}{\color{\beamer@torinoth@color}{\ding{51}}}{}}%
+{\begin{list}{\color{alerted text.fg}{\ding{51}}}{}}%
 {\end{list}}%
 
 % Disadvantages mode
 \newenvironment{disadv}%
-{\begin{list}{\color{\beamer@torinoth@color}{\ding{55}}}{}}%
+{\begin{list}{\color{alerted text.fg}{\ding{55}}}{}}%
 {\end{list}}%
 
 % Square mode

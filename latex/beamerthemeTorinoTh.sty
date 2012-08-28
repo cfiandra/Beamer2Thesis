@@ -12,7 +12,7 @@
 \mode<presentation>
 
 % Options
-\DeclareOptionBeamer{language}{\PassOptionsToPackage{language=#1}{beamerinnerthemetorinoth}}
+\DeclareOptionBeamer{language}{\PassOptionsToPackage{language=#1}{beamerinnerthemetorinoth}\def\beamer@torinoth@language{#1}}
 \DeclareOptionBeamer{titlepagelogo}{\PassOptionsToPackage{titlepagelogo=#1}{beamerinnerthemetorinoth}}
 \DeclareOptionBeamer{bullet}{\PassOptionsToPackage{bullet=#1}{beamerinnerthemetorinoth}}
 \DeclareOptionBeamer{pageofpages}{\PassOptionsToPackage{pageofpages=#1}{beamerouterthemetorinoth}}
@@ -44,23 +44,46 @@
   \RequirePackage[\beamer@torinoth@coding]{inputenc}%
 \fi
 
+% Disable insertshorttitle link
+\renewcommand\insertshorttitle[1][]{%
+  \beamer@setupshort{#1}%
+  \let\thanks=\@gobble%
+  \beamer@insertshort{\beamer@shorttitle}%
+  }
+
 % Language
+\def\beamer@torinoth@subject{}%
 \def\beamer@torinoth@italiantext{italian}%
+\def\beamer@torinoth@englishtext{english}%
   \ifx\beamer@torinoth@language\beamer@torinoth@italiantext%
-    \def\beamer@torinoth@subject{Presentazione Tesi di Laurea}%
+    \renewcommand\beamer@torinoth@subject{Presentazione Tesi di Laurea}%
     \ifxetex
       \setmainlanguage{italian}%
     \else
       \RequirePackage[italian]{babel}%
     \fi
-  \else%
-    \def\beamer@torinoth@subject{Thesis Presentation}%
+  \fi%
+  
+  \ifx\beamer@torinoth@language\beamer@torinoth@englishtext%
+    \renewcommand\beamer@torinoth@subject{Thesis Presentation}%
     \ifxetex
       \setmainlanguage[variant=british]{english}%
     \else
       \RequirePackage[english]{babel}%
-    \fi
-\fi%
+    \fi%
+  \else%
+   \def\setsubject#1{\gdef\@setsubject{#1}}%
+   \def\@setsubject{\PackageError{Beamer2Thesis}%
+   {\protect\setsubject\space not given. Please insert it}%
+   {Example in english: \protect\setsubject{Thesis Presentation}}
+   }   
+   \renewcommand\beamer@torinoth@subject{\@setsubject}%
+    \ifxetex
+      \setmainlanguage{\beamer@torinoth@language}%
+    \else
+      \RequirePackage[\beamer@torinoth@language]{babel}%
+    \fi%    
+  \fi%
 
 % General settings
 \useinnertheme{torinoth}
@@ -82,17 +105,16 @@
 }
 
 % Highlight a single word
-\newcommand{\highlight}[1]{{\it{\color{\beamer@torinoth@color}{#1}}}}
-\newcommand{\highlightbf}[1]{{\bf\color{\beamer@torinoth@color}{#1}}}
+\newcommand{\highlight}[1]{{\it{\color{alerted text.fg}{#1}}}}
+\newcommand{\highlightbf}[1]{{\bf\color{alerted text.fg}{#1}}}
 
 % Define hypersetup
 \hypersetup{%
     colorlinks=true,
     hyperindex=true,
-    pdfpagelabels,
     plainpages=false,
-    urlcolor=\beamer@torinoth@color,
-    linkcolor=\beamer@torinoth@color,
+    urlcolor=alerted text.fg,
+    linkcolor=alerted text.fg,
     pdfinfo={%
         Title={\inserttitle},%
         Author={\insertauthor},%

@@ -54,6 +54,11 @@ In alternativa, Beamer2Thesis può essere scaricato dalla mia pagina personale c
 \begin{itemize}
 \item \href{http://claudiofiandrino.altervista.org/latex\_projects.html}{http://claudiofiandrino.altervista.org/latex\_projects.html}
 \end{itemize}
+o dalla pagina ufficiale:
+\begin{itemize}
+\item \href{http://cfiandra.github.com/Beamer2Thesis/}{http://cfiandra.github.com/Beamer2Thesis/}
+\end{itemize}
+
 Ovviamente deve essere installato seguendo la procedura standard di installazione manuale di un pacchetto: suggerisco, ancora di leggere la guida di Enrico Gregorio
 \end{tframe}
 
@@ -151,16 +156,32 @@ Ci sono diversi modi per inserire il vostro logo (per persone molto esperte in \
 
 \begin{frame}[t,fragile]{Lingue}
 \begin{itemize}
-\item Sono disponibili due lingue:
+\item Tutte le lingue sono disponibili, ma le due principali sono:
 \begin{itemize}
-\item inglese (default)
+\item inglese
 \item italiano
 \end{itemize}
-\item La scelta delle lingue implica che, nella pagina iniziale, date e label (Supervisor, Candidate, Relatore, Candidato) siano riportate esattamente in modo automatico
-\item Per selezionare la lingua italiana, usate nel preambolo:
+\item La scelta di una delle due lingue principali implica che, nella pagina iniziale, date e label (Supervisor, Candidate, Relatore, Candidato) siano riportate esattamente in modo automatico
+\item Per selezionare la lingua italiana, ad esempio, usate nel preambolo:
 \verb!language=italian!
+il nome deve essere quello utilizzato dal pacchetto babel or dal comando \verb!\setmainfont! con \XeLaTeX
+\item Se la lingua selezionata non è una delle due principali, occorre ridefinire manualmente le label del frontespizio (si riporta un esempio nella diapositiva successiva)
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t,fragile]{Lingue (II)}
+\begin{itemize}
+\item Un esempio con la lingua spagnola:
+\begin{verbatim}
+\usetheme[language=spanish,...]{TorinoTh}
+\setrellabel{Relator Tesis}
+\setcandidatelabel{Candidato}
+\setassistentsupervisorlabel{Co Tesis}
+\setsubject{Tesis}
+\end{verbatim}
+\item I comandi illustrati sono obbligatori quando \highlight{non si utilizza} una delle due lingue principali
 \item Se avete scelto una lingua e volete cambiarla, può succedere che, la prima compilazione dia questo errore: \begin{flushleft}
-\highlight{! Package babel Error: You haven't loaded the option english/italian yet}
+\highlight{! Package babel Error: You haven't loaded the option -lingua- yet}
 \end{flushleft}
 non spaventatevi e compilate nuovamente: funzionerà!
 \end{itemize}

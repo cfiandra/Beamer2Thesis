@@ -55,6 +55,11 @@ As an alternative, Beamer2Thesis can be downloaded from my personal page as a zi
 \begin{itemize}
 \item \href{http://claudiofiandrino.altervista.org/latex\_projects.html}{http://claudiofiandrino.altervista.org/latex\_projects.html}
 \end{itemize}
+or in the official page:
+\begin{itemize}
+\item \href{http://cfiandra.github.com/Beamer2Thesis/}{http://cfiandra.github.com/Beamer2Thesis/}
+\end{itemize}
+
 It can be installed with the standard procedure used to install a common package: I suggest you to read a short guide I have written
 \begin{itemize}
 \item \href{http://claudiofiandrino.altervista.org/LaTeX/package_installation.pdf}{download the guide here}
@@ -164,16 +169,31 @@ There are several ways to do it (for people highly capable in \LaTeX\, this is n
 
 \begin{frame}[t,fragile]{Languages}
 \begin{itemize}
-\item There are two languages avaiable:
+\item All languages can be supported, but the two main ones are:
 \begin{itemize}
-\item english (default)
+\item english
 \item italian 
 \end{itemize}
-\item The choice of the language implies that in the titlepage, date and labels (Supervisor, Candidate, Relatore, Candidato) are shown with the proper language in an automatic way
-\item To set the italian language, use in the configuration phase:
-\verb!language=italian!
+\item The choice of one of the main languages implies that in the titlepage, date and labels (Supervisor, Candidate, Relatore, Candidato) are shown with the proper language in an automatic way
+\item To set the italian language, for example, use in the configuration phase:
+\verb!language=italian!; the name should be the one used by the package babel or by \verb!\setmainfont! with \XeLaTeX
+\item If the language selected is not one of the two main languages, then labels in the titlepage should be introduced by the user (see the example in the next frame)
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t,fragile]{Languages (II)}
+\begin{itemize}
+\item Example with spanish language:
+\begin{verbatim}
+\usetheme[language=spanish,...]{TorinoTh}
+\setrellabel{Relator Tesis}
+\setcandidatelabel{Candidato}
+\setassistentsupervisorlabel{Co Tesis}
+\setsubject{Tesis}
+\end{verbatim}
+\item Commands illustrated are mandatory when \highlight{not using} a main language
 \item If you have already set a language and you change, it may happen that, the first time you compile, this error occurs: \begin{flushleft}
-\highlight{! Package babel Error: You haven't loaded the option english/italian yet}
+\highlight{! Package babel Error: You haven't loaded the option -language- yet}
 \end{flushleft}
 do not be afraid and compile a second time: it will work!!
 \end{itemize}
